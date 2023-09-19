@@ -12,7 +12,7 @@ var version = "1.0.0";
 
 var currency;
 
-var c1
+var c1;
 
 currency = theory.createCurrency();
 
@@ -24,6 +24,13 @@ var init = () => {
         c1.getDescription = (_) => Utils.getMath(getDesc(c1.level));
         c1.getInfo = (amount) => Utils.getMathTo(getInfo(c1.level), getInfo(c1.level + amount));
     }
+}
+
+var tick = (elapsedTime, multiplier) => {
+    let dt = BigNumber.from(elapsedTime * multiplier);
+    let bonus = theory.publicationMultiplier;
+
+    currency.value += getC1(c1.level);
 }
 
 var getC1 = (level) => level;
