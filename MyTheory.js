@@ -12,7 +12,7 @@ var version = "1.0.0";
 
 var currency;
 
-var c1;
+var c1, c2;
 
 currency = theory.createCurrency();
 
@@ -24,15 +24,23 @@ var init = () => {
         c1.getDescription = (_) => Utils.getMath(getDesc(c1.level));
         c1.getInfo = (amount) => Utils.getMathTo(getInfo(c1.level), getInfo(c1.level + amount));
     }
+    {
+        let getDesc = (level) => "c_2=" + getC2(level);
+        let getInfo = (level) => "c_2=" + getC2(level);
+        c2 = theory.createUpgrade(0, currency, new FirstFreeCost(new ExponentialCost(100, 5));
+        c2.getDescription = (_) => Utils.getMath(getDesc(c2.level));
+        c2.getInfo = (amount) => Utils.getMathTo(getInfo(c2.level), getInfo(c2.level + amount));
+    }
 }
 
 var tick = (elapsedTime, multiplier) => {
     let dt = BigNumber.from(elapsedTime * multiplier);
     let bonus = theory.publicationMultiplier;
 
-    currency.value += getC1(c1.level);
+    currency.value += getC1(c1.level) * getC2(c2.level);
 }
 
 var getC1 = (level) => level;
+var getC2 = (level) => BigNumber.TWO.pow(level) - 1;
 
 init();
