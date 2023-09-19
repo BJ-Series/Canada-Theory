@@ -26,4 +26,6 @@ var init = () => {
     }
 }
 
+var getC1 = (level) => level;
+
 init();
