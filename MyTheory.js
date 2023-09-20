@@ -40,6 +40,8 @@ var tick = (elapsedTime, multiplier) => {
     currency.value += getC1(c1.level) * getC2(c2.level);
 }
 
+var getPrimaryEquation = () => "\\rho_1 = c_1c_2";
+
 var getC1 = (level) => level;
 var getC2 = (level) => BigNumber.TWO.pow(level);
 
