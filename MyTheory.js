@@ -41,6 +41,6 @@ var tick = (elapsedTime, multiplier) => {
 }
 
 var getC1 = (level) => level;
-var getC2 = (level) => BigNumber.TWO.pow(level) - 1;
+var getC2 = (level) => BigNumber.TWO.pow(level);
 
 init();
